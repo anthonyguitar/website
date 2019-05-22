@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- Header -->
+    <head>
+
+        <!-- This is a django thing -->
+        {% load static %}
+
+        <!-- need to load css in this specific order -->
+        <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/materialize.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/index.css' %}">
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Satisfy'>
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Raleway'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- let browser know we are mobile friendly -->
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+
+        <!-- Description -->
+        <meta name='description' content='Anthony Meyer guitar, drums, and producing'/>
+
+        <!-- Keywords -->
+        <meta name='keywords' content='Anthony Meyer, guitar, drums, producer, Knoxville, TN, Marshall On, Quillen Blalock, instrumental, music'/>
+
+        <!-- Author -->
+        <meta name='author' content='Anthony Meyer'/>
+
+        <!-- title yo -->
+        <title>Anthony Meyer Guitar</title>
+
+    </head>
+
+    <!-- Main -->
+    <body>
+        
+        <!-- everything lives insider container class -->
+        <div class='container'>
+            
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 1 - Name Heading for whole website                -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class='section'>
+                <div id='mainHeader' class='row center-align'>
+
+                    <!-- main title row -->
+                    <div id='row'>
+
+                        <!-- main col of this row -->
+                        <div class='col s12 m12 l12'>
+                            <h4>Anthony Meyer</h4>
+                        </div>
+                    </div>
+
+                    <!-- subheading row -->
+                    <div id='row'>
+                        Guitar &amp; Drums
+                    </div>
+                </div>
+            </div>
+            <div class='divider grey darken-4'></div>
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 2 - Email list sign-up section                    -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class='section'>
+                <div class='row'>
+
+                    <!-- Main column of this row, signup form -->
+                    <div id='formDiv' class='row'>
+
+                        <!-- header of this section -->
+                        <div id='formDiv' class='col s12 m12 l12'>
+                            <h5>Join the fam.</h5>
+                            <p>Join my family of {{ fanCount }} by signing up to the email list below.
+                               You'll be the first to hear any news.
+                            </p>
+                        </div>
+                    </div>
+                    <div id='emailFormRow' class='row'>
+
+                        <!-- form for signing up (dissappears after entering) -->
+                        <div class='col s10 m8 l8'>
+                            <form id='emailListForm' method='post'>
+                                {% csrf_token %}
+                                <input class='validate' type="email" name="email" id="emailID" placeholder='Email'>
+                                <input class='grey darken-4 white-text btn' type="submit" value="Go!">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='divider grey darken-4'></div>
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 3 - Show the people how many fans we have         -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+            <!-- footer -->
+            <footer>
+
+                <!-- Load Javascript -->
+                <script>var CSRF_TOKEN = '{{ csrf_token }}'; </script>
+                <script src="{% static 'mainapp/js/jquery-3.4.0.min.js' %}"></script>
+                <script src="{% static 'mainapp/js/materialize.min.js' %}"></script>
+                <script src="{% static 'mainapp/js/main.js' %}"></script>
+            </footer>
+        </div>
+    </body>
+
+</html>
