@@ -8,6 +8,9 @@ def index(request):
     context = { 'fanCount': fanNumber }
     return render(request, 'mainapp/index.html', context)
 
+def robots(request):
+    return(request, 'mainapp/robots.txt')
+
 def createFan(request):
 
     # grab email from signup form
