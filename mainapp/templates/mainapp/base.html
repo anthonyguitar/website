@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- Header -->
+    <head>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133075300-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-133075300-2');
+        </script>
+
+        <!-- This is a django thing -->
+        {% load static %}
+
+        <!-- need to load css in this specific order -->
+        <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/materialize.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/index.css' %}">
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Satisfy'>
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Raleway'>
+        <link rel="shortcut icon" type="image/png" href="{% static 'mainapp/images/favicon.png' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="apple-touch-icon" href="{% static 'mainapp/images/favicon.png' %}">
+
+        <!-- let browser know we are mobile friendly -->
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+
+        <!-- Description -->
+        <meta name='description' content='Anthony Meyer of Knoxville, TN is a guitarist, a drummer, and a producer focusing in progressive rock and instrumental music.'/>
+
+        <!-- Keywords -->
+        <meta name='keywords' content='Anthony Meyer, guitar, music, drums, producer, Knoxville, TN, Marshall On, instrumental, music, Quillen Blalock, Kyle Brashear, Intervals, Owane, Plini, Suhr'/>
+        <link rel="apple-touch-icon" href="{% static 'mainapp/images/favicon.png' %}">
+
+        <!-- Author -->
+        <meta name='author' content='Anthony Meyer'/>
+
+        <!-- title yo -->
+        <title>Anthony Meyer Guitar</title>
+
+    </head>
+
+    <!-- Main -->
+    <body>
+
+        <!-- Everything goes in this -->
+        <div class='container'>
+
+            <!-- Navigation Bar -->
+            <nav>
+                <div class='nav-wrapper'>
+                    <a href='#!' class='brand-logo'></a>
+                    <a href='#' data-target='mobile-demo' class='sidenav-trigger'> 
+                        <i class='material-icons'>menu</i>
+                    </a>
+                    <ul id='nav-mobile' class='right hide-on-med-and-down'> 
+                        <li><a href='/videos'>Videos</a></li> 
+                    </ul>
+                </div> <!-- End of nav-wrapper DIV -->
+            </nav>
+
+            <ul class='sidenav' id='mobile-demo'> 
+                <li><a href='/videos'>Videos</a></li> 
+            </ul>
+
+            <!-- Page specific content -->
+            {% block contentBody %}
+            {% endblock %}
+        </div>
+        
+    </body>
+</html>

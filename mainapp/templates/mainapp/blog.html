@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- Header -->
+    <head>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133075300-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-133075300-2');
+        </script>
+
+        <!-- This is a django thing -->
+        {% load static %}
+
+        <!-- need to load css in this specific order -->
+        <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/materialize.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/index.css' %}">
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Satisfy'>
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Raleway'>
+        <link rel="shortcut icon" type="image/png" href="{% static 'mainapp/images/favicon.png' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="apple-touch-icon" href="{% static 'mainapp/images/favicon.png' %}">
+
+        <!-- let browser know we are mobile friendly -->
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+
+        <!-- Description -->
+        <meta name='description' content='Anthony Meyer of Knoxville, TN is a guitarist, a drummer, and a producer focusing in progressive rock and instrumental music.'/>
+
+        <!-- Keywords -->
+        <meta name='keywords' content='Anthony Meyer, guitar, music, drums, producer, Knoxville, TN, Marshall On, instrumental, music, Quillen Blalock, Kyle Brashear, Intervals, Owane, Plini, Suhr'/>
+        <link rel="apple-touch-icon" href="{% static 'mainapp/images/favicon.png' %}">
+
+        <!-- Author -->
+        <meta name='author' content='Anthony Meyer'/>
+
+        <!-- title yo -->
+        <title>{{ blog.title }}</title>
+
+    </head>
+
+    <!-- Main -->
+    <body>
+        
+        <!-- everything lives insider container class -->
+        <div class='container'>
+            
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 1 - Name Heading for whole website                -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class='section'>
+                
+                <div id='mainHeader' class='row center-align'>
+
+                    <!-- main title row -->
+                    <div id='row'>
+
+                        <!-- main col of this row -->
+                        <div class='col s12 m12 l12'>
+                            <h1>{{ blog.title }}</h1>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class='row center-align'>
+
+                    <!-- main title row -->
+                    <div id='row'>
+
+                        <!-- main col of this row -->
+                        <div class='col s12 m12 l12'>
+                            <p>{{ blog.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End Anthony Meyer title section. -->
+
+            <!-- Section divider -->
+            <div class='divider grey darken-4'></div>
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 2 - Social Media Links                            -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class='section'>
+                <div class='row center-align'>
+                    <div class='col s12 m12 l12'>
+                        <p>Follow me on your favorite social media platform.</p>
+                    </div>
+                </div>
+                <div class='row center-align'>
+                    <!-- YouTube Icon -->
+                    <div class='col s2 m2 l2 offset-s3 offset-m3 offset-l3'>
+                        <a href="https://www.youtube.com/channel/UCSweYHSSx0ePk4hljBdjTng">
+                            <img src="{% static 'mainapp/images/YouTube.png' %}" style="width: 35px" alt='YouTube Link' />
+                        </a>
+                    </div>
+
+                    <!-- SoundCloud Icon -->
+                    <div class='col s2 m2 l2'>
+                        <a href="https://soundcloud.com/anthonymeyerguitar">
+                            <img src="{% static 'mainapp/images/SoundCloud.png' %}" style="width: 33px" alt='SoundCloud Link' />
+                        </a>
+                    </div>
+
+                    <!-- Twitter Icon -->
+                    <div class='col s2 m2 l2'>
+                        <a href="https://twitter.com/ameyerguitar">
+                            <img src="{% static 'mainapp/images/Twitter.png' %}" style="width: 33px" alt='Twitter Link' />
+                        </a>
+                    </div>
+                </div>
+            </div><!-- End social media links section -->
+
+            <!-- Section divider -->
+            <div class='divider grey darken-4'></div>
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 3 - Email list sign-up section                    -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class='section'>
+                <div class='row'>
+
+                    <!-- Main column of this row, signup form -->
+                    <div id='formDiv' class='row'>
+
+                        <!-- header of this section -->
+                        <div id='formDiv' class='col s12 m12 l12'>
+                            <h5>Access extra content by joining the email list!</h5>
+                            <p>
+                                You will receive alerts when new music is
+                                released and when new videos are up on YouTube.
+                                Additionally, fans that are themselves
+                                musicians will have the chance to randomly be
+                                featured each day on the front page of this
+                                website.
+                            </p>
+                            <b>Current Number of Fans:</b> {{ fanCount }} (Next milestone is 25)
+                        </div>
+                    </div>
+                    <div id='emailFormRow' class='row'>
+
+                        <!-- form for signing up (dissappears after entering) -->
+                        <div class='col s10 m8 l8'>
+                            <form id='emailListForm' method='post'>
+                                {% csrf_token %}
+                                <input class='validate' type="email" name="email" id="emailID" placeholder='Email'>
+                                <input class='grey darken-4 white-text btn' type="submit" value="Go!">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End email list section -->
+
+            <!-- Section Divider -->
+            <div class='divider grey darken-4'></div>
+
+            <!-- footer -->
+            <footer>
+
+                <!-- Little links at the bottom -->
+                <div class='section'>
+
+                    <div class='row'>
+                        <div class='col s12 m6 l4'>
+                            <b>Contact</b>
+                            <ol style='list-style-type: circle'>
+                                <li>
+                                    <a href='mailto:anthonymeyerguitar@gmail.com?subject="Hello Anthony"'>
+                                        Email
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Section Divider -->
+                <div class='divider grey darken-4'></div>
+
+                <!-- Copyright -->
+                <div class='section'>
+                    <!-- Copyright -->
+                    <div class='row center-align'>
+                        <div class='col s12 m12 l12'>
+                            Copyright - Anthony Meyer 2019
+                        </div>
+                        <div class='col s12 m12 l12'>
+                            Website built by Anthony Meyer 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load Javascript -->
+                <script>var CSRF_TOKEN = '{{ csrf_token }}'; </script>
+                <script src="{% static 'mainapp/js/jquery-3.4.0.min.js' %}"></script>
+                <script src="{% static 'mainapp/js/materialize.min.js' %}"></script>
+                <script src="{% static 'mainapp/js/main.js' %}"></script>
+            </footer>
+        </div>
+    </body>
+</html>
