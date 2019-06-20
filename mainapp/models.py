@@ -32,3 +32,10 @@ class Blog(models.Model):
     url = models.CharField(default='', max_length=256, unique=True)
     title = models.CharField(default='', max_length=256, unique=True)
     content = models.CharField(default='', max_length=3000)
+
+class Tab(models.Model):
+    url = models.CharField(default='', max_length=256, unique=True)
+    filename = models.CharField(default='', max_length=256, unique=True)
+    title = models.CharField(default='', max_length=256, unique=True)
+    description = models.CharField(default='', max_length=3000)
+    videoLink = models.CharField(default='', max_length=256, unique=True)

@@ -1,0 +1,41 @@
+{% extends 'mainapp/base.html' %}
+{% block contentBody %} 
+
+{% load static %}
+
+    <!-- if we found a good tab -->
+    {% if validPage %}
+
+        <h3>{{ tab.title }}</h3>
+        <p>{{ tab.description }}</p>
+        <iframe src="https://docs.google.com/gview?url=https://anthonyguitar.com/static/mainapp/images/{{tab.filename}}&embedded=true" style="width:100%; height:500px;" frameborder="0"> </iframe>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ROW 4 - Latest Video                                  -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class='section'>
+            <div class='row center-align'>
+                <div class='col s12 m12 l12'>
+                    <iframe 
+                        style="width: 560px; max-width:100%; height:315px" 
+                        src="{{ tab.videoLink }}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div><!-- End latest video section -->
+
+    <!-- ok, let's just display all the tabs that we know of -->
+    {% else %}
+        <h3>Latest Anthony Meyer Guitar Tabs</h3>
+        <ul> 
+            {% for tab in tabs %}
+                <li><a href='https://anthonyguitar.com/tabs/{{tab.url}}'>{{tab.title}}</a></li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+
+{% endblock %}
