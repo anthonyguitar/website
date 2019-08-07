@@ -15,7 +15,7 @@ def index(request):
     fanNumber = FanCounter.objects.all()[0].count
     context = { 'fanCount': fanNumber, 'artist': Artist.objects.all()[artistIndex] }
     return render(request, 'mainapp/homepage.html', context)
-
+'''
 def tabs(request, url='None'):
     # try to grab a tab object
     context = {'validPage': False }
@@ -27,7 +27,7 @@ def tabs(request, url='None'):
         tabs = Tab.objects.all()
         context['tabs'] = tabs
     return render(request, 'mainapp/tabs.html', context)
-    
+'''  
 '''
 def videos(request):
     context = {}

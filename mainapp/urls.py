@@ -12,6 +12,6 @@ urlpatterns = [
     #path('videos', views.videos, name='videos'),
     #path('blogs', views.blogs, name='blogs'),
     #path('blogs/<str:url>', views.blogs, name='blogs'),
-    path('tabs', views.tabs, name='tabs'),
-    path('tabs/<str:url>', views.tabs, name='tabs'),
+    #path('tabs', views.tabs, name='tabs'),
+    #path('tabs/<str:url>', views.tabs, name='tabs'),
 ]
