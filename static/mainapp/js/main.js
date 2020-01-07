@@ -34,6 +34,38 @@ $(document).ready(function() {
         });
     });
 
+    // add event handler to form submit
+    $('#linkForm').on('submit', function(e) {
+        e.preventDefault();
+        var email = $('#emailID').val();
+        var link = $('#musicLinkID').val();
+
+        // make an ajax call
+        $.ajax({
+            url: 'submissions',
+            cache: 'false',
+            type: 'POST',
+            data: {csrfmiddlewaretoken: CSRF_TOKEN, 'email': email, 'link': link},
+            success: function(data) {
+
+                // see if it worked
+                if (data['status'] != 'success') {
+                    $('#formDiv p').html(data['status']);
+                    $('#formDiv p').css('color', 'red');
+                } else {
+                    // hide the form and say thanks for signing up
+                    $('#formDiv h5').html('Thank you for the submission! I will listen and get back to you!');
+                    $('#formDiv h5').css('color', 'green');
+                    $('#formDiv p').hide();
+                    $('#emailFormRow').hide();
+                }
+            },
+            error: function(data) {
+                $('#formDiv h5').html(data['status']);
+            }
+        });
+    });
+
     // collapsible
     var coll = document.getElementsByClassName("collapsible");
     var i;

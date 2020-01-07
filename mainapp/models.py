@@ -10,6 +10,15 @@ class EmailList(models.Model):
     def __str__(self):
         return self.email
 
+class MusicLink(models.Model):
+    email = models.EmailField(max_length=200, default='notset')
+    link = models.CharField(max_length=200, default='notset')
+    created_at = models.DateTimeField(auto_now_add=True)
+    def __repr__(self):
+        return self.email
+    def __str__(self):
+        return self.email
+
 class FanCounter(models.Model):
     name = models.CharField(default='fanCount', max_length=200)
     count = models.IntegerField(default=0)

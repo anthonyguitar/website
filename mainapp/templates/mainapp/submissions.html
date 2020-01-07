@@ -1,0 +1,76 @@
+{% extends 'mainapp/base.html' %}
+{% block contentBody %} 
+
+        {% load static %}
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 1 - Name Heading for whole website                -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class='section'>
+                
+                <div id='mainHeader' class='row center-align'>
+
+                    <!-- main title row -->
+                    <div id='row'>
+
+                        <!-- main col of this row -->
+                        <div class='col s12 m12 l12'>
+                            <h1>Music Submissions</h1>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End Anthony Meyer title section. -->
+
+            <!-- Section divider -->
+            <div class='divider grey darken-4'></div>
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ROW 3 - Email list sign-up section                    -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class='section'>
+                <div class='row'>
+
+                    <!-- Main column of this row, signup form -->
+                    <div id='formDiv' class='row'>
+
+                        <!-- header of this section -->
+                        <div id='formDiv' class='col s12 m12 l12'>
+                            <h5>I will listen to every submission!</h5>
+                            <p>
+                                I have made a decision to really help out other
+                                artists this year by being the next drop in
+                                their bucket. I'll listen to each submission
+                                and provide encouraging and meaningful feedback
+                                as best I can on whichever platform is
+                                associated with the provided link. The only
+                                catch is that you sign up to my mailing list
+                                and submit a link below. I will pick my
+                                favorite submission each week and write a
+                                little blurb describing what I like about that
+                                artist, and I'll find a place to publish it on
+                                this website.
+                            </p>
+                            <p>
+                                Links from bandcamp, soundcloud, and youtube
+                                are all acceptable!
+                            </p>
+                        </div>
+                    </div>
+                    <div id='emailFormRow' class='row'>
+
+                        <!-- form for signing up (dissappears after entering) -->
+                        <div class='col s10 m8 l8'>
+                        <form id='linkForm' method='post' action='/submissions'>
+                                {% csrf_token %}
+                                <input class='validate' type="email" name="email" id="emailID" placeholder='Email'>
+                                <input class='validate' type="text" name="music_link" id="musicLinkID" placeholder='Music Link'>
+                                <input class='grey darken-4 white-text btn' type="submit" value="Go!">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End email list section -->
+
+            <!-- Section Divider -->
+            <div class='divider grey darken-4'></div>
+{% endblock %}

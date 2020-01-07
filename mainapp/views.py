@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, JsonResponse
-from .models import EmailList, FanCounter, Artist, Blog, Tab
+from .models import EmailList, FanCounter, Artist, Blog, Tab, MusicLink
 import random
 from random import randint as r
 import datetime
@@ -15,6 +15,7 @@ def index(request):
     fanNumber = FanCounter.objects.all()[0].count
     context = { 'fanCount': fanNumber, 'artist': Artist.objects.all()[artistIndex] }
     return render(request, 'mainapp/homepage.html', context)
+
 '''
 def tabs(request, url='None'):
     # try to grab a tab object
@@ -42,6 +43,18 @@ def blogs(request, url='none'):
 '''
 def robots(request):
     return(request, 'mainapp/robots.txt')
+
+def submissions(request):
+    if request.method == 'POST':
+        context = {'status': 'success'}
+        email = request.POST.get('email')
+        link = request.POST.get('link')
+        ml = MusicLink()
+        ml.email = email
+        ml.link = link
+        ml.save()
+        return JsonResponse(context)
+    return render(request, 'mainapp/submissions.html')
 
 def createFan(request):
 
