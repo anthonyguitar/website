@@ -13,7 +13,8 @@ def index(request):
     artistIndex = r(0, Artist.objects.count() - 1)
     #artistIndex = 0
     fanNumber = FanCounter.objects.all()[0].count
-    context = { 'fanCount': fanNumber, 'artist': Artist.objects.all()[artistIndex] }
+    context = { 'fanCount': fanNumber, 'artist': Artist.objects.all()[artistIndex],
+                'title': 'Anthony Meyer Guitar'}
     return render(request, 'mainapp/homepage.html', context)
 
 '''
@@ -31,7 +32,7 @@ def tabs(request, url='None'):
 '''  
 '''
 def videos(request):
-    context = {}
+    context = { 'title': 'Anthony Meyer Videos' }
     return render(request, 'mainapp/videos.html', context)
 
 def blogs(request, url='none'):
@@ -46,7 +47,7 @@ def robots(request):
 
 def submissions(request):
     if request.method == 'POST':
-        context = {'status': 'success'}
+        context = {'status': 'success', 'title': 'Music Submissions'}
         email = request.POST.get('email')
         link = request.POST.get('link')
         ml = MusicLink()
@@ -54,7 +55,7 @@ def submissions(request):
         ml.link = link
         ml.save()
         return JsonResponse(context)
-    return render(request, 'mainapp/submissions.html')
+    return render(request, 'mainapp/submissions.html', {'title': 'Music Submissions'})
 
 def createFan(request):
 
