@@ -1,7 +1,8 @@
 body {
     background: #050505;
     color: white;
-    font-family: 'Raleway';
+    font-family: 'Nunito';
+    font-size: larger;
 }
 
 #mainHeader {

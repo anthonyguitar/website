@@ -22,7 +22,7 @@ def musictheory_one(request):
     return render(request, 'mainapp/musictheory_one.html', context)
 
 def musictheory_two(request):
-    context = { 'title': 'What Notes do I Play?' }
+    context = { 'title': 'How do I Choose Which Notes to Play?' }
     return render(request, 'mainapp/musictheory_two.html', context)
 
 '''
