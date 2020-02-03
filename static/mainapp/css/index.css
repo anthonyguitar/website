@@ -4,6 +4,10 @@ body {
     font-family: 'Raleway';
 }
 
+#mc_embed_signup {
+    background: #050505;
+}
+
 #mainHeader {
     font-family: 'Satisfy';
 }

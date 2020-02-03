@@ -17,6 +17,14 @@ def index(request):
                 'title': 'Anthony Meyer Guitar'}
     return render(request, 'mainapp/homepage.html', context)
 
+def musictheory_one(request):
+    context = { 'title': 'What is Music Theory?' }
+    return render(request, 'mainapp/musictheory_one.html', context)
+
+def musictheory_two(request):
+    context = { 'title': 'What Notes do I Play?' }
+    return render(request, 'mainapp/musictheory_two.html', context)
+
 '''
 def tabs(request, url='None'):
     # try to grab a tab object

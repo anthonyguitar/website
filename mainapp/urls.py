@@ -6,6 +6,8 @@ from . import views
 app_name = 'mainapp'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('musictheory_one', views.musictheory_one, name='musictheory_one'),
+    path('musictheory_two', views.musictheory_two, name='musictheory_two'),
     path('robots.txt', TemplateView.as_view(template_name='mainapp/robots.txt', content_type='text/plain'), name='robots'),
     path('sitemap.txt', TemplateView.as_view(template_name='mainapp/sitemap.txt', content_type='text/plain'), name='sitemap'),
     path('createFan', views.createFan, name='createFan'),
